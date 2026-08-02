@@ -16,7 +16,7 @@ layers:
   - D
   - F
   - G
-  - Sft+Gui+S
+  - ESC
   - '-'
   - H
   - J
@@ -28,7 +28,7 @@ layers:
   - C
   - V
   - B
-  - ':'
+  - Function
   - ;
   - N
   - M
@@ -38,30 +38,23 @@ layers:
   - LCTRL
   - LEFT WIN
   - LEFT ALT
-  - {t: '&to_layer_0 INT_HENKAN', h: System}
+  - F14
   - BACKSPACE
   - SPACE
   - ENTER
-  - {t: LCTRL, h: Function}
+  - F13
   - DEL
   Function:
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - F1
   - F2
   - F3
   - F4
   - F5
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - F13
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
   - F6
   - F7
   - F8
@@ -69,25 +62,32 @@ layers:
   - F10
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - F11
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '6'
+  - '7'
+  - '8'
+  - '9'
+  - '0'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {type: held}
-  - F12
+  - {t: ▽, type: trans}
+  - '-'
+  - '='
+  - '{'
+  - '}'
+  - HOME
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - END
   Num:
   - '-'
   - KP 7
@@ -302,7 +302,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {type: held}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -363,3 +363,18 @@ combos:
   k: '"'
 - p: [24, 25]
   k: '='
+- p: [40, 41, 0]
+  k: {t: BT, h: '0'}
+  l: [Base]
+- p: [40, 41, 1]
+  k: {t: BT, h: '1'}
+  l: [Base]
+- p: [40, 41, 2]
+  k: {t: BT, h: '2'}
+  l: [Base]
+- p: [40, 41, 3]
+  k: {t: BT, h: '3'}
+  l: [Base]
+- p: [40, 41, 4]
+  k: {t: BT, h: '4'}
+  l: [Base]
