@@ -39,8 +39,8 @@ layers:
   - LEFT WIN
   - LEFT ALT
   - F14
-  - {t: ▽, type: trans}
   - SPACE
+  - {t: ▽, type: trans}
   - ENTER
   - F13
   - /
