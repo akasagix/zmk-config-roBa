@@ -6,6 +6,18 @@
         zmk,physical-layout = &roba_physical_layout;
     };
 
+    // zmk-rgbled-widget: seeeduino_xiao_ble 用に内蔵RGB LEDの別名を定義
+    // (rgbled_adapter は xiao_ble(新名)向けのみ別名を持つため旧名では自前定義が必要)
+    aliases {
+        led-red = &led0;
+        led-green = &led1;
+        led-blue = &led2;
+    };
+
+    leds {
+        status = "okay";
+    };
+
     roba_physical_layout: roba_physical_layout {
         compatible = "zmk,physical-layout";
         display-name = "Default";
