@@ -1,0 +1,823 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>roBa キーマップ チートシート</title>
+<style>
+:root {
+  --bg: #eef0ea;
+  --surface: #ffffff;
+  --surface-2: #e3e7de;
+  --ink: #1b2420;
+  --ink-muted: #5d685f;
+  --ink-faint: #93a196;
+  --line: #d3d9cc;
+  --accent: #b5652f;
+  --accent-soft: #f0dcc8;
+  --accent2: #2f6f5e;
+  --accent2-soft: #d9ebe4;
+  --trans-key: #f4f5f1;
+  --key-face: #ffffff;
+  --key-line: #cfd6c7;
+  --shadow: 0 1px 0 rgba(27,36,32,0.06), 0 1px 3px rgba(27,36,32,0.05);
+  --radius: 7px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #10140f;
+    --surface: #171c16;
+    --surface-2: #1f2620;
+    --ink: #e9ede5;
+    --ink-muted: #96a294;
+    --ink-faint: #61705f;
+    --line: #2a3327;
+    --accent: #dd9558;
+    --accent-soft: #3a2c1e;
+    --accent2: #57c2a5;
+    --accent2-soft: #16332c;
+    --trans-key: #1b2119;
+    --key-face: #1e251d;
+    --key-line: #333f2f;
+    --shadow: 0 1px 0 rgba(0,0,0,0.3), 0 1px 4px rgba(0,0,0,0.35);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #10140f; --surface: #171c16; --surface-2: #1f2620; --ink: #e9ede5;
+  --ink-muted: #96a294; --ink-faint: #61705f; --line: #2a3327; --accent: #dd9558;
+  --accent-soft: #3a2c1e; --accent2: #57c2a5; --accent2-soft: #16332c;
+  --trans-key: #1b2119; --key-face: #1e251d; --key-line: #333f2f;
+  --shadow: 0 1px 0 rgba(0,0,0,0.3), 0 1px 4px rgba(0,0,0,0.35);
+}
+:root[data-theme="light"] {
+  --bg: #eef0ea; --surface: #ffffff; --surface-2: #e3e7de; --ink: #1b2420;
+  --ink-muted: #5d685f; --ink-faint: #93a196; --line: #d3d9cc; --accent: #b5652f;
+  --accent-soft: #f0dcc8; --accent2: #2f6f5e; --accent2-soft: #d9ebe4;
+  --trans-key: #f4f5f1; --key-face: #ffffff; --key-line: #cfd6c7;
+  --shadow: 0 1px 0 rgba(27,36,32,0.06), 0 1px 3px rgba(27,36,32,0.05);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: ui-monospace, "SF Mono", "Cascadia Mono", "JetBrains Mono", Consolas, monospace;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.page {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+header.masthead {
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  font-stretch: condensed;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: var(--accent2);
+}
+
+h1 {
+  font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  font-size: 28px;
+  margin: 4px 0 6px;
+  text-wrap: balance;
+  color: var(--ink);
+}
+
+.sub {
+  color: var(--ink-muted);
+  font-size: 13px;
+  max-width: 62ch;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin: 22px 0 8px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.legend-swatch {
+  width: 30px;
+  height: 20px;
+  border-radius: 5px;
+  border: 1px solid var(--key-line);
+  flex: none;
+  position: relative;
+  background: var(--key-face);
+}
+.legend-swatch.mod { background: var(--accent2-soft); border-color: var(--accent2); }
+.legend-swatch.ltap { background: var(--accent2-soft); border-color: var(--accent2); }
+.legend-swatch.mo { background: var(--accent-soft); border-color: var(--accent); }
+.legend-swatch.special { background: var(--accent-soft); border-color: var(--accent); }
+.legend-swatch.trans { background: var(--trans-key); border-style: dashed; }
+
+section.layer {
+  margin: 30px 0;
+  padding: 18px 18px 20px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.layer-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.layer-name {
+  font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: -0.005em;
+}
+
+.layer-note {
+  font-size: 11.5px;
+  color: var(--ink-faint);
+}
+
+.board-wrap {
+  overflow-x: auto;
+}
+
+.board {
+  position: relative;
+  width: 592.0px;
+  height: 218.0px;
+  margin: 0 auto;
+}
+
+.key {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  background: var(--key-face);
+  border: 1px solid var(--key-line);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.15;
+  overflow: hidden;
+}
+
+.key .shift {
+  position: absolute;
+  top: 1px;
+  right: 3px;
+  font-size: 7.5px;
+  font-weight: 600;
+  color: var(--ink-faint);
+}
+
+.key .tap {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.key .hold {
+  font-size: 7.5px;
+  color: var(--ink-faint);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.key.k-trans {
+  background: var(--trans-key);
+  border-style: dashed;
+  border-color: var(--line);
+}
+
+.key.k-mod, .key.k-ltap {
+  background: var(--accent2-soft);
+  border-color: var(--accent2);
+}
+.key.k-mod .hold, .key.k-ltap .hold { color: var(--accent2); font-weight: 700; }
+
+.key.k-mo, .key.k-special {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+.key.k-mo .tap, .key.k-special .tap { color: var(--accent); font-weight: 700; }
+.key.k-special .hold { color: var(--accent); }
+
+.key.k-posmap {
+  background: var(--surface-2);
+  border-style: dotted;
+  border-color: var(--ink-faint);
+}
+.key.k-posmap .tap {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.sensor-note {
+  margin-top: 12px;
+  font-size: 11.5px;
+  color: var(--ink-muted);
+}
+
+table.combos {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  margin-top: 10px;
+}
+table.combos th {
+  text-align: left;
+  font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 10.5px;
+  color: var(--ink-faint);
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--line);
+}
+table.combos td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+table.combos td.pos { color: var(--ink-muted); }
+table.combos td.result { color: var(--accent); font-weight: 700; }
+
+.notes {
+  margin-top: 30px;
+  padding: 16px 18px;
+  background: var(--surface-2);
+  border-radius: 10px;
+  font-size: 12.5px;
+  color: var(--ink-muted);
+}
+.notes h2 {
+  font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  color: var(--ink);
+  margin: 0 0 10px;
+}
+.notes ul { margin: 0; padding-left: 18px; }
+.notes li { margin: 5px 0; }
+
+footer {
+  margin-top: 34px;
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header class="masthead">
+    <div class="eyebrow">ZMK · roBa split keyboard</div>
+    <h1>roBa キーマップ チートシート</h1>
+    <p class="sub">config/roBa.keymap と boards/shields/roBa/roBa.dtsi の実座標から生成。各レイヤーの盤面配置は実機の物理配置(スタガー・親指クラスタ)に対応しています。</p>
+  </header>
+
+  <div class="legend">
+    <div class="legend-item"><span class="legend-swatch normal"></span>通常キー</div>
+<div class="legend-item"><span class="legend-swatch mod"></span>Mod-Tap(下段=保持時)</div>
+<div class="legend-item"><span class="legend-swatch ltap"></span>Layer-Tap(下段=保持時レイヤー)</div>
+<div class="legend-item"><span class="legend-swatch mo"></span>モーメンタリレイヤー(保持)</div>
+<div class="legend-item"><span class="legend-swatch special"></span>修飾+特殊バインディング</div>
+<div class="legend-item"><span class="legend-swatch trans"></span>透過(下位レイヤーを継続)</div>
+<div class="legend-item"><span class="legend-swatch normal" style="position:relative"><span style="position:absolute;top:1px;right:2px;font-size:7.5px;font-weight:600;color:var(--ink-faint)">@</span></span>右上小文字 = Shift+同キーで入力される文字(US配列)</div>
+  </div>
+
+  
+<section class="layer">
+  <div class="layer-head">
+    <span class="layer-name">Base</span>
+    <span class="layer-note">既定レイヤー(常時)</span>
+  </div>
+  <div class="board-wrap"><div class="board">
+<div class="key k-normal" style="left:0.0px;top:17.0px" title="pos 0"><span class="tap">Q</span></div>
+<div class="key k-normal" style="left:46.0px;top:5.5px" title="pos 1"><span class="tap">W</span></div>
+<div class="key k-normal" style="left:92.0px;top:0.0px" title="pos 2"><span class="tap">E</span></div>
+<div class="key k-normal" style="left:138.0px;top:5.5px" title="pos 3"><span class="tap">R</span></div>
+<div class="key k-normal" style="left:184.0px;top:11.0px" title="pos 4"><span class="tap">T</span></div>
+<div class="key k-normal" style="left:368.0px;top:11.0px" title="pos 5"><span class="tap">Y</span></div>
+<div class="key k-normal" style="left:414.0px;top:5.5px" title="pos 6"><span class="tap">U</span></div>
+<div class="key k-ltap" style="left:460.0px;top:0.0px" title="pos 7"><span class="hold">Scroll</span><span class="tap">I</span></div>
+<div class="key k-normal" style="left:506.0px;top:5.5px" title="pos 8"><span class="tap">O</span></div>
+<div class="key k-normal" style="left:552.0px;top:17.0px" title="pos 9"><span class="tap">P</span></div>
+<div class="key k-normal" style="left:0.0px;top:63.0px" title="pos 10"><span class="tap">A</span></div>
+<div class="key k-normal" style="left:46.0px;top:51.5px" title="pos 11"><span class="tap">S</span></div>
+<div class="key k-normal" style="left:92.0px;top:46.0px" title="pos 12"><span class="tap">D</span></div>
+<div class="key k-normal" style="left:138.0px;top:51.5px" title="pos 13"><span class="tap">F</span></div>
+<div class="key k-normal" style="left:184.0px;top:57.0px" title="pos 14"><span class="tap">G</span></div>
+<div class="key k-normal" style="left:230.0px;top:63.0px" title="pos 15"><span class="tap">Esc</span></div>
+<div class="key k-normal" style="left:322.0px;top:63.0px" title="pos 16"><span class="tap">⌫</span></div>
+<div class="key k-normal" style="left:368.0px;top:57.0px" title="pos 17"><span class="tap">H</span></div>
+<div class="key k-normal" style="left:414.0px;top:51.5px" title="pos 18"><span class="tap">J</span></div>
+<div class="key k-normal" style="left:460.0px;top:46.0px" title="pos 19"><span class="tap">K</span></div>
+<div class="key k-normal" style="left:506.0px;top:51.5px" title="pos 20"><span class="tap">L</span></div>
+<div class="key k-normal" style="left:552.0px;top:63.0px" title="pos 21 · Shift+; = :"><span class="shift">:</span><span class="tap">;</span></div>
+<div class="key k-mod" style="left:0.0px;top:109.0px" title="pos 22"><span class="hold">Shift</span><span class="tap">Z</span></div>
+<div class="key k-normal" style="left:46.0px;top:97.5px" title="pos 23"><span class="tap">X</span></div>
+<div class="key k-normal" style="left:92.0px;top:92.0px" title="pos 24"><span class="tap">C</span></div>
+<div class="key k-normal" style="left:138.0px;top:97.5px" title="pos 25"><span class="tap">V</span></div>
+<div class="key k-normal" style="left:184.0px;top:103.0px" title="pos 26"><span class="tap">B</span></div>
+<div class="key k-mo" style="left:230.0px;top:109.0px" title="pos 27"><span class="tap">Fn</span></div>
+<div class="key k-normal" style="left:322.0px;top:109.0px" title="pos 28 · Shift+` = ~"><span class="shift">~</span><span class="tap">`</span></div>
+<div class="key k-normal" style="left:368.0px;top:103.0px" title="pos 29"><span class="tap">N</span></div>
+<div class="key k-normal" style="left:414.0px;top:97.5px" title="pos 30"><span class="tap">M</span></div>
+<div class="key k-normal" style="left:460.0px;top:92.0px" title="pos 31 · Shift+, = <"><span class="shift"><</span><span class="tap">,</span></div>
+<div class="key k-normal" style="left:506.0px;top:97.5px" title="pos 32 · Shift+. = >"><span class="shift">></span><span class="tap">.</span></div>
+<div class="key k-normal" style="left:552.0px;top:109.0px" title="pos 33 · Shift+' = ""><span class="shift">"</span><span class="tap">'</span></div>
+<div class="key k-normal" style="left:0.0px;top:155.0px" title="pos 34"><span class="tap">Ctrl</span></div>
+<div class="key k-normal" style="left:46.0px;top:143.5px" title="pos 35"><span class="tap">Win</span></div>
+<div class="key k-normal" style="left:92.0px;top:138.0px" title="pos 36"><span class="tap">Alt</span></div>
+<div class="key k-normal" style="left:149.5px;top:155.0px" title="pos 37"><span class="tap">F14</span></div>
+<div class="key k-normal" style="left:201.0px;top:161.0px" title="pos 38"><span class="tap">Space</span></div>
+<div class="key k-trans" style="left:253.0px;top:178.0px" title="pos 39 · 透過"></div>
+<div class="key k-normal" style="left:299.0px;top:178.0px" title="pos 40"><span class="tap">Enter</span></div>
+<div class="key k-normal" style="left:351.0px;top:161.0px" title="pos 41"><span class="tap">F13</span></div>
+<div class="key k-normal" style="left:552.0px;top:155.0px" title="pos 42 · Shift+/ = ?"><span class="shift">?</span><span class="tap">/</span></div>
+  </div></div>
+  <div class="sensor-note">エンコーダ: 上=PgUp / 下=PageDown</div>
+</section>
+<section class="layer">
+  <div class="layer-head">
+    <span class="layer-name">Function</span>
+    <span class="layer-note">左手小指 mo(1) 保持中</span>
+  </div>
+  <div class="board-wrap"><div class="board">
+<div class="key k-normal" style="left:0.0px;top:17.0px" title="pos 0"><span class="tap">F1</span></div>
+<div class="key k-normal" style="left:46.0px;top:5.5px" title="pos 1"><span class="tap">F2</span></div>
+<div class="key k-normal" style="left:92.0px;top:0.0px" title="pos 2"><span class="tap">F3</span></div>
+<div class="key k-normal" style="left:138.0px;top:5.5px" title="pos 3"><span class="tap">F4</span></div>
+<div class="key k-normal" style="left:184.0px;top:11.0px" title="pos 4"><span class="tap">F5</span></div>
+<div class="key k-normal" style="left:368.0px;top:11.0px" title="pos 5 · Shift+1 = !"><span class="shift">!</span><span class="tap">1</span></div>
+<div class="key k-normal" style="left:414.0px;top:5.5px" title="pos 6 · Shift+2 = @"><span class="shift">@</span><span class="tap">2</span></div>
+<div class="key k-normal" style="left:460.0px;top:0.0px" title="pos 7 · Shift+3 = #"><span class="shift">#</span><span class="tap">3</span></div>
+<div class="key k-normal" style="left:506.0px;top:5.5px" title="pos 8 · Shift+4 = $"><span class="shift">$</span><span class="tap">4</span></div>
+<div class="key k-normal" style="left:552.0px;top:17.0px" title="pos 9 · Shift+5 = %"><span class="shift">%</span><span class="tap">5</span></div>
+<div class="key k-normal" style="left:0.0px;top:63.0px" title="pos 10"><span class="tap">F6</span></div>
+<div class="key k-normal" style="left:46.0px;top:51.5px" title="pos 11"><span class="tap">F7</span></div>
+<div class="key k-normal" style="left:92.0px;top:46.0px" title="pos 12"><span class="tap">F8</span></div>
+<div class="key k-normal" style="left:138.0px;top:51.5px" title="pos 13"><span class="tap">F9</span></div>
+<div class="key k-normal" style="left:184.0px;top:57.0px" title="pos 14"><span class="tap">F10</span></div>
+<div class="key k-trans" style="left:230.0px;top:63.0px" title="pos 15 · 透過"></div>
+<div class="key k-trans" style="left:322.0px;top:63.0px" title="pos 16 · 透過"></div>
+<div class="key k-normal" style="left:368.0px;top:57.0px" title="pos 17 · Shift+6 = ^"><span class="shift">^</span><span class="tap">6</span></div>
+<div class="key k-normal" style="left:414.0px;top:51.5px" title="pos 18 · Shift+7 = &"><span class="shift">&</span><span class="tap">7</span></div>
+<div class="key k-normal" style="left:460.0px;top:46.0px" title="pos 19 · Shift+8 = *"><span class="shift">*</span><span class="tap">8</span></div>
+<div class="key k-normal" style="left:506.0px;top:51.5px" title="pos 20 · Shift+9 = ("><span class="shift">(</span><span class="tap">9</span></div>
+<div class="key k-normal" style="left:552.0px;top:63.0px" title="pos 21 · Shift+0 = )"><span class="shift">)</span><span class="tap">0</span></div>
+<div class="key k-trans" style="left:0.0px;top:109.0px" title="pos 22 · 透過"></div>
+<div class="key k-trans" style="left:46.0px;top:97.5px" title="pos 23 · 透過"></div>
+<div class="key k-trans" style="left:92.0px;top:92.0px" title="pos 24 · 透過"></div>
+<div class="key k-trans" style="left:138.0px;top:97.5px" title="pos 25 · 透過"></div>
+<div class="key k-trans" style="left:184.0px;top:103.0px" title="pos 26 · 透過"></div>
+<div class="key k-trans" style="left:230.0px;top:109.0px" title="pos 27 · 透過"></div>
+<div class="key k-trans" style="left:322.0px;top:109.0px" title="pos 28 · 透過"></div>
+<div class="key k-normal" style="left:368.0px;top:103.0px" title="pos 29 · Shift+- = _"><span class="shift">_</span><span class="tap">-</span></div>
+<div class="key k-normal" style="left:414.0px;top:97.5px" title="pos 30 · Shift+= = +"><span class="shift">+</span><span class="tap">=</span></div>
+<div class="key k-normal" style="left:460.0px;top:92.0px" title="pos 31"><span class="tap">{</span></div>
+<div class="key k-normal" style="left:506.0px;top:97.5px" title="pos 32"><span class="tap">}</span></div>
+<div class="key k-normal" style="left:552.0px;top:109.0px" title="pos 33"><span class="tap">Home</span></div>
+<div class="key k-trans" style="left:0.0px;top:155.0px" title="pos 34 · 透過"></div>
+<div class="key k-trans" style="left:46.0px;top:143.5px" title="pos 35 · 透過"></div>
+<div class="key k-trans" style="left:92.0px;top:138.0px" title="pos 36 · 透過"></div>
+<div class="key k-trans" style="left:149.5px;top:155.0px" title="pos 37 · 透過"></div>
+<div class="key k-trans" style="left:201.0px;top:161.0px" title="pos 38 · 透過"></div>
+<div class="key k-trans" style="left:253.0px;top:178.0px" title="pos 39 · 透過"></div>
+<div class="key k-trans" style="left:299.0px;top:178.0px" title="pos 40 · 透過"></div>
+<div class="key k-trans" style="left:351.0px;top:161.0px" title="pos 41 · 透過"></div>
+<div class="key k-normal" style="left:552.0px;top:155.0px" title="pos 42"><span class="tap">End</span></div>
+  </div></div>
+  
+</section>
+<section class="layer">
+  <div class="layer-head">
+    <span class="layer-name">Num</span>
+    <span class="layer-note">切替キー未設定 — ZMK Studio等で直接切替</span>
+  </div>
+  <div class="board-wrap"><div class="board">
+<div class="key k-normal" style="left:0.0px;top:17.0px" title="pos 0 · Shift+- = _"><span class="shift">_</span><span class="tap">-</span></div>
+<div class="key k-normal" style="left:46.0px;top:5.5px" title="pos 1"><span class="tap">KP7</span></div>
+<div class="key k-normal" style="left:92.0px;top:0.0px" title="pos 2"><span class="tap">KP8</span></div>
+<div class="key k-normal" style="left:138.0px;top:5.5px" title="pos 3"><span class="tap">KP9</span></div>
+<div class="key k-normal" style="left:184.0px;top:11.0px" title="pos 4"><span class="tap">+</span></div>
+<div class="key k-normal" style="left:368.0px;top:11.0px" title="pos 5"><span class="tap">^</span></div>
+<div class="key k-normal" style="left:414.0px;top:5.5px" title="pos 6"><span class="tap">&</span></div>
+<div class="key k-normal" style="left:460.0px;top:0.0px" title="pos 7"><span class="tap">~</span></div>
+<div class="key k-normal" style="left:506.0px;top:5.5px" title="pos 8"><span class="tap">(</span></div>
+<div class="key k-normal" style="left:552.0px;top:17.0px" title="pos 9"><span class="tap">)</span></div>
+<div class="key k-normal" style="left:0.0px;top:63.0px" title="pos 10 · Shift+/ = ?"><span class="shift">?</span><span class="tap">/</span></div>
+<div class="key k-normal" style="left:46.0px;top:51.5px" title="pos 11"><span class="tap">KP4</span></div>
+<div class="key k-normal" style="left:92.0px;top:46.0px" title="pos 12"><span class="tap">KP5</span></div>
+<div class="key k-normal" style="left:138.0px;top:51.5px" title="pos 13"><span class="tap">KP6</span></div>
+<div class="key k-normal" style="left:184.0px;top:57.0px" title="pos 14"><span class="tap">*</span></div>
+<div class="key k-special" style="left:230.0px;top:63.0px" title="pos 15"><span class="hold">Ctrl+Alt</span><span class="tap">KP0</span></div>
+<div class="key k-normal" style="left:322.0px;top:63.0px" title="pos 16"><span class="tap">_</span></div>
+<div class="key k-normal" style="left:368.0px;top:57.0px" title="pos 17"><span class="tap">!</span></div>
+<div class="key k-normal" style="left:414.0px;top:51.5px" title="pos 18"><span class="tap">@</span></div>
+<div class="key k-normal" style="left:460.0px;top:46.0px" title="pos 19"><span class="tap">#</span></div>
+<div class="key k-normal" style="left:506.0px;top:51.5px" title="pos 20"><span class="tap">$</span></div>
+<div class="key k-normal" style="left:552.0px;top:63.0px" title="pos 21"><span class="tap">%</span></div>
+<div class="key k-mod" style="left:0.0px;top:109.0px" title="pos 22"><span class="hold">Shift</span><span class="tap">KP0</span></div>
+<div class="key k-normal" style="left:46.0px;top:97.5px" title="pos 23"><span class="tap">KP1</span></div>
+<div class="key k-normal" style="left:92.0px;top:92.0px" title="pos 24"><span class="tap">KP2</span></div>
+<div class="key k-normal" style="left:138.0px;top:97.5px" title="pos 25"><span class="tap">KP3</span></div>
+<div class="key k-normal" style="left:184.0px;top:103.0px" title="pos 26 · Shift+. = >"><span class="shift">></span><span class="tap">.</span></div>
+<div class="key k-normal" style="left:230.0px;top:109.0px" title="pos 27 · Shift+= = +"><span class="shift">+</span><span class="tap">=</span></div>
+<div class="key k-trans" style="left:322.0px;top:109.0px" title="pos 28 · 透過"></div>
+<div class="key k-normal" style="left:368.0px;top:103.0px" title="pos 29 · Shift+[ = {"><span class="shift">{</span><span class="tap">[</span></div>
+<div class="key k-normal" style="left:414.0px;top:97.5px" title="pos 30 · Shift+] = }"><span class="shift">}</span><span class="tap">]</span></div>
+<div class="key k-normal" style="left:460.0px;top:92.0px" title="pos 31"><span class="tap">{</span></div>
+<div class="key k-normal" style="left:506.0px;top:97.5px" title="pos 32"><span class="tap">}</span></div>
+<div class="key k-normal" style="left:552.0px;top:109.0px" title="pos 33 · Shift+\ = |"><span class="shift">|</span><span class="tap">\</span></div>
+<div class="key k-trans" style="left:0.0px;top:155.0px" title="pos 34 · 透過"></div>
+<div class="key k-trans" style="left:46.0px;top:143.5px" title="pos 35 · 透過"></div>
+<div class="key k-trans" style="left:92.0px;top:138.0px" title="pos 36 · 透過"></div>
+<div class="key k-trans" style="left:149.5px;top:155.0px" title="pos 37 · 透過"></div>
+<div class="key k-trans" style="left:201.0px;top:161.0px" title="pos 38 · 透過"></div>
+<div class="key k-trans" style="left:253.0px;top:178.0px" title="pos 39 · 透過"></div>
+<div class="key k-trans" style="left:299.0px;top:178.0px" title="pos 40 · 透過"></div>
+<div class="key k-trans" style="left:351.0px;top:161.0px" title="pos 41 · 透過"></div>
+<div class="key k-normal" style="left:552.0px;top:155.0px" title="pos 42"><span class="tap">|</span></div>
+  </div></div>
+  
+</section>
+<section class="layer">
+  <div class="layer-head">
+    <span class="layer-name">Arrow</span>
+    <span class="layer-note">切替キー未設定 — ZMK Studio等で直接切替</span>
+  </div>
+  <div class="board-wrap"><div class="board">
+<div class="key k-normal" style="left:0.0px;top:17.0px" title="pos 0"><span class="tap">Esc</span></div>
+<div class="key k-special" style="left:46.0px;top:5.5px" title="pos 1"><span class="hold">Ctrl+Shift</span><span class="tap">Tab</span></div>
+<div class="key k-normal" style="left:92.0px;top:0.0px" title="pos 2"><span class="tap">↑</span></div>
+<div class="key k-special" style="left:138.0px;top:5.5px" title="pos 3"><span class="hold">Ctrl</span><span class="tap">Tab</span></div>
+<div class="key k-trans" style="left:184.0px;top:11.0px" title="pos 4 · 透過"></div>
+<div class="key k-trans" style="left:368.0px;top:11.0px" title="pos 5 · 透過"></div>
+<div class="key k-trans" style="left:414.0px;top:5.5px" title="pos 6 · 透過"></div>
+<div class="key k-trans" style="left:460.0px;top:0.0px" title="pos 7 · 透過"></div>
+<div class="key k-trans" style="left:506.0px;top:5.5px" title="pos 8 · 透過"></div>
+<div class="key k-trans" style="left:552.0px;top:17.0px" title="pos 9 · 透過"></div>
+<div class="key k-normal" style="left:0.0px;top:63.0px" title="pos 10"><span class="tap">Home</span></div>
+<div class="key k-normal" style="left:46.0px;top:51.5px" title="pos 11"><span class="tap">←</span></div>
+<div class="key k-normal" style="left:92.0px;top:46.0px" title="pos 12"><span class="tap">↓</span></div>
+<div class="key k-normal" style="left:138.0px;top:51.5px" title="pos 13"><span class="tap">→</span></div>
+<div class="key k-normal" style="left:184.0px;top:57.0px" title="pos 14"><span class="tap">End</span></div>
+<div class="key k-trans" style="left:230.0px;top:63.0px" title="pos 15 · 透過"></div>
+<div class="key k-trans" style="left:322.0px;top:63.0px" title="pos 16 · 透過"></div>
+<div class="key k-trans" style="left:368.0px;top:57.0px" title="pos 17 · 透過"></div>
+<div class="key k-trans" style="left:414.0px;top:51.5px" title="pos 18 · 透過"></div>
+<div class="key k-trans" style="left:460.0px;top:46.0px" title="pos 19 · 透過"></div>
+<div class="key k-trans" style="left:506.0px;top:51.5px" title="pos 20 · 透過"></div>
+<div class="key k-trans" style="left:552.0px;top:63.0px" title="pos 21 · 透過"></div>
+<div class="key k-normal" style="left:0.0px;top:109.0px" title="pos 22"><span class="tap">Shift</span></div>
+<div class="key k-special" style="left:46.0px;top:97.5px" title="pos 23"><span class="hold">Gui+Shift</span><span class="tap">←</span></div>
+<div class="key k-trans" style="left:92.0px;top:92.0px" title="pos 24 · 透過"></div>
+<div class="key k-special" style="left:138.0px;top:97.5px" title="pos 25"><span class="hold">Gui+Shift</span><span class="tap">→</span></div>
+<div class="key k-trans" style="left:184.0px;top:103.0px" title="pos 26 · 透過"></div>
+<div class="key k-trans" style="left:230.0px;top:109.0px" title="pos 27 · 透過"></div>
+<div class="key k-trans" style="left:322.0px;top:109.0px" title="pos 28 · 透過"></div>
+<div class="key k-trans" style="left:368.0px;top:103.0px" title="pos 29 · 透過"></div>
+<div class="key k-trans" style="left:414.0px;top:97.5px" title="pos 30 · 透過"></div>
+<div class="key k-trans" style="left:460.0px;top:92.0px" title="pos 31 · 透過"></div>
+<div class="key k-trans" style="left:506.0px;top:97.5px" title="pos 32 · 透過"></div>
+<div class="key k-trans" style="left:552.0px;top:109.0px" title="pos 33 · 透過"></div>
+<div class="key k-trans" style="left:0.0px;top:155.0px" title="pos 34 · 透過"></div>
+<div class="key k-trans" style="left:46.0px;top:143.5px" title="pos 35 · 透過"></div>
+<div class="key k-trans" style="left:92.0px;top:138.0px" title="pos 36 · 透過"></div>
+<div class="key k-trans" style="left:149.5px;top:155.0px" title="pos 37 · 透過"></div>
+<div class="key k-trans" style="left:201.0px;top:161.0px" title="pos 38 · 透過"></div>
+<div class="key k-trans" style="left:253.0px;top:178.0px" title="pos 39 · 透過"></div>
+<div class="key k-trans" style="left:299.0px;top:178.0px" title="pos 40 · 透過"></div>
+<div class="key k-trans" style="left:351.0px;top:161.0px" title="pos 41 · 透過"></div>
+<div class="key k-trans" style="left:552.0px;top:155.0px" title="pos 42 · 透過"></div>
+  </div></div>
+  <div class="sensor-note">エンコーダ: 上=Ctrl+PgUp / 下=Ctrl+PgDown</div>
+</section>
+<section class="layer">
+  <div class="layer-head">
+    <span class="layer-name">Mouse</span>
+    <span class="layer-note">トラックボール操作中に自動起動 (automouse-layer)</span>
+  </div>
+  <div class="board-wrap"><div class="board">
+<div class="key k-trans" style="left:0.0px;top:17.0px" title="pos 0 · 透過"></div>
+<div class="key k-trans" style="left:46.0px;top:5.5px" title="pos 1 · 透過"></div>
+<div class="key k-trans" style="left:92.0px;top:0.0px" title="pos 2 · 透過"></div>
+<div class="key k-trans" style="left:138.0px;top:5.5px" title="pos 3 · 透過"></div>
+<div class="key k-trans" style="left:184.0px;top:11.0px" title="pos 4 · 透過"></div>
+<div class="key k-trans" style="left:368.0px;top:11.0px" title="pos 5 · 透過"></div>
+<div class="key k-trans" style="left:414.0px;top:5.5px" title="pos 6 · 透過"></div>
+<div class="key k-trans" style="left:460.0px;top:0.0px" title="pos 7 · 透過"></div>
+<div class="key k-trans" style="left:506.0px;top:5.5px" title="pos 8 · 透過"></div>
+<div class="key k-trans" style="left:552.0px;top:17.0px" title="pos 9 · 透過"></div>
+<div class="key k-trans" style="left:0.0px;top:63.0px" title="pos 10 · 透過"></div>
+<div class="key k-trans" style="left:46.0px;top:51.5px" title="pos 11 · 透過"></div>
+<div class="key k-trans" style="left:92.0px;top:46.0px" title="pos 12 · 透過"></div>
+<div class="key k-trans" style="left:138.0px;top:51.5px" title="pos 13 · 透過"></div>
+<div class="key k-trans" style="left:184.0px;top:57.0px" title="pos 14 · 透過"></div>
+<div class="key k-trans" style="left:230.0px;top:63.0px" title="pos 15 · 透過"></div>
+<div class="key k-trans" style="left:322.0px;top:63.0px" title="pos 16 · 透過"></div>
+<div class="key k-trans" style="left:368.0px;top:57.0px" title="pos 17 · 透過"></div>
+<div class="key k-normal" style="left:414.0px;top:51.5px" title="pos 18"><span class="tap">Click L</span></div>
+<div class="key k-normal" style="left:460.0px;top:46.0px" title="pos 19"><span class="tap">Click M</span></div>
+<div class="key k-normal" style="left:506.0px;top:51.5px" title="pos 20"><span class="tap">Click R</span></div>
+<div class="key k-trans" style="left:552.0px;top:63.0px" title="pos 21 · 透過"></div>
+<div class="key k-trans" style="left:0.0px;top:109.0px" title="pos 22 · 透過"></div>
+<div class="key k-trans" style="left:46.0px;top:97.5px" title="pos 23 · 透過"></div>
+<div class="key k-trans" style="left:92.0px;top:92.0px" title="pos 24 · 透過"></div>
+<div class="key k-trans" style="left:138.0px;top:97.5px" title="pos 25 · 透過"></div>
+<div class="key k-trans" style="left:184.0px;top:103.0px" title="pos 26 · 透過"></div>
+<div class="key k-trans" style="left:230.0px;top:109.0px" title="pos 27 · 透過"></div>
+<div class="key k-trans" style="left:322.0px;top:109.0px" title="pos 28 · 透過"></div>
+<div class="key k-trans" style="left:368.0px;top:103.0px" title="pos 29 · 透過"></div>
+<div class="key k-trans" style="left:414.0px;top:97.5px" title="pos 30 · 透過"></div>
+<div class="key k-trans" style="left:460.0px;top:92.0px" title="pos 31 · 透過"></div>
+<div class="key k-trans" style="left:506.0px;top:97.5px" title="pos 32 · 透過"></div>
+<div class="key k-trans" style="left:552.0px;top:109.0px" title="pos 33 · 透過"></div>
+<div class="key k-trans" style="left:0.0px;top:155.0px" title="pos 34 · 透過"></div>
+<div class="key k-trans" style="left:46.0px;top:143.5px" title="pos 35 · 透過"></div>
+<div class="key k-trans" style="left:92.0px;top:138.0px" title="pos 36 · 透過"></div>
+<div class="key k-trans" style="left:149.5px;top:155.0px" title="pos 37 · 透過"></div>
+<div class="key k-trans" style="left:201.0px;top:161.0px" title="pos 38 · 透過"></div>
+<div class="key k-trans" style="left:253.0px;top:178.0px" title="pos 39 · 透過"></div>
+<div class="key k-trans" style="left:299.0px;top:178.0px" title="pos 40 · 透過"></div>
+<div class="key k-trans" style="left:351.0px;top:161.0px" title="pos 41 · 透過"></div>
+<div class="key k-trans" style="left:552.0px;top:155.0px" title="pos 42 · 透過"></div>
+  </div></div>
+  
+</section>
+<section class="layer">
+  <div class="layer-head">
+    <span class="layer-name">Scroll</span>
+    <span class="layer-note">右手人差し指 lt(5) 保持中(Iキー) — トラックボールがスクロール入力に</span>
+  </div>
+  <div class="board-wrap"><div class="board">
+<div class="key k-trans" style="left:0.0px;top:17.0px" title="pos 0 · 透過"></div>
+<div class="key k-trans" style="left:46.0px;top:5.5px" title="pos 1 · 透過"></div>
+<div class="key k-trans" style="left:92.0px;top:0.0px" title="pos 2 · 透過"></div>
+<div class="key k-trans" style="left:138.0px;top:5.5px" title="pos 3 · 透過"></div>
+<div class="key k-trans" style="left:184.0px;top:11.0px" title="pos 4 · 透過"></div>
+<div class="key k-trans" style="left:368.0px;top:11.0px" title="pos 5 · 透過"></div>
+<div class="key k-trans" style="left:414.0px;top:5.5px" title="pos 6 · 透過"></div>
+<div class="key k-trans" style="left:460.0px;top:0.0px" title="pos 7 · 透過"></div>
+<div class="key k-trans" style="left:506.0px;top:5.5px" title="pos 8 · 透過"></div>
+<div class="key k-trans" style="left:552.0px;top:17.0px" title="pos 9 · 透過"></div>
+<div class="key k-trans" style="left:0.0px;top:63.0px" title="pos 10 · 透過"></div>
+<div class="key k-trans" style="left:46.0px;top:51.5px" title="pos 11 · 透過"></div>
+<div class="key k-trans" style="left:92.0px;top:46.0px" title="pos 12 · 透過"></div>
+<div class="key k-trans" style="left:138.0px;top:51.5px" title="pos 13 · 透過"></div>
+<div class="key k-trans" style="left:184.0px;top:57.0px" title="pos 14 · 透過"></div>
+<div class="key k-trans" style="left:230.0px;top:63.0px" title="pos 15 · 透過"></div>
+<div class="key k-trans" style="left:322.0px;top:63.0px" title="pos 16 · 透過"></div>
+<div class="key k-trans" style="left:368.0px;top:57.0px" title="pos 17 · 透過"></div>
+<div class="key k-trans" style="left:414.0px;top:51.5px" title="pos 18 · 透過"></div>
+<div class="key k-trans" style="left:460.0px;top:46.0px" title="pos 19 · 透過"></div>
+<div class="key k-trans" style="left:506.0px;top:51.5px" title="pos 20 · 透過"></div>
+<div class="key k-trans" style="left:552.0px;top:63.0px" title="pos 21 · 透過"></div>
+<div class="key k-trans" style="left:0.0px;top:109.0px" title="pos 22 · 透過"></div>
+<div class="key k-trans" style="left:46.0px;top:97.5px" title="pos 23 · 透過"></div>
+<div class="key k-trans" style="left:92.0px;top:92.0px" title="pos 24 · 透過"></div>
+<div class="key k-trans" style="left:138.0px;top:97.5px" title="pos 25 · 透過"></div>
+<div class="key k-trans" style="left:184.0px;top:103.0px" title="pos 26 · 透過"></div>
+<div class="key k-trans" style="left:230.0px;top:109.0px" title="pos 27 · 透過"></div>
+<div class="key k-trans" style="left:322.0px;top:109.0px" title="pos 28 · 透過"></div>
+<div class="key k-trans" style="left:368.0px;top:103.0px" title="pos 29 · 透過"></div>
+<div class="key k-trans" style="left:414.0px;top:97.5px" title="pos 30 · 透過"></div>
+<div class="key k-trans" style="left:460.0px;top:92.0px" title="pos 31 · 透過"></div>
+<div class="key k-trans" style="left:506.0px;top:97.5px" title="pos 32 · 透過"></div>
+<div class="key k-trans" style="left:552.0px;top:109.0px" title="pos 33 · 透過"></div>
+<div class="key k-trans" style="left:0.0px;top:155.0px" title="pos 34 · 透過"></div>
+<div class="key k-trans" style="left:46.0px;top:143.5px" title="pos 35 · 透過"></div>
+<div class="key k-trans" style="left:92.0px;top:138.0px" title="pos 36 · 透過"></div>
+<div class="key k-trans" style="left:149.5px;top:155.0px" title="pos 37 · 透過"></div>
+<div class="key k-trans" style="left:201.0px;top:161.0px" title="pos 38 · 透過"></div>
+<div class="key k-trans" style="left:253.0px;top:178.0px" title="pos 39 · 透過"></div>
+<div class="key k-trans" style="left:299.0px;top:178.0px" title="pos 40 · 透過"></div>
+<div class="key k-trans" style="left:351.0px;top:161.0px" title="pos 41 · 透過"></div>
+<div class="key k-trans" style="left:552.0px;top:155.0px" title="pos 42 · 透過"></div>
+  </div></div>
+  
+</section>
+<section class="layer">
+  <div class="layer-head">
+    <span class="layer-name">System</span>
+    <span class="layer-note">切替キー未設定 — ZMK Studio等で直接切替</span>
+  </div>
+  <div class="board-wrap"><div class="board">
+<div class="key k-trans" style="left:0.0px;top:17.0px" title="pos 0 · 透過"></div>
+<div class="key k-trans" style="left:46.0px;top:5.5px" title="pos 1 · 透過"></div>
+<div class="key k-trans" style="left:92.0px;top:0.0px" title="pos 2 · 透過"></div>
+<div class="key k-trans" style="left:138.0px;top:5.5px" title="pos 3 · 透過"></div>
+<div class="key k-trans" style="left:184.0px;top:11.0px" title="pos 4 · 透過"></div>
+<div class="key k-special" style="left:368.0px;top:11.0px" title="pos 5"><span class="hold">0</span><span class="tap">BT</span></div>
+<div class="key k-special" style="left:414.0px;top:5.5px" title="pos 6"><span class="hold">1</span><span class="tap">BT</span></div>
+<div class="key k-special" style="left:460.0px;top:0.0px" title="pos 7"><span class="hold">2</span><span class="tap">BT</span></div>
+<div class="key k-special" style="left:506.0px;top:5.5px" title="pos 8"><span class="hold">3</span><span class="tap">BT</span></div>
+<div class="key k-special" style="left:552.0px;top:17.0px" title="pos 9"><span class="hold">4</span><span class="tap">BT</span></div>
+<div class="key k-trans" style="left:0.0px;top:63.0px" title="pos 10 · 透過"></div>
+<div class="key k-trans" style="left:46.0px;top:51.5px" title="pos 11 · 透過"></div>
+<div class="key k-trans" style="left:92.0px;top:46.0px" title="pos 12 · 透過"></div>
+<div class="key k-trans" style="left:138.0px;top:51.5px" title="pos 13 · 透過"></div>
+<div class="key k-trans" style="left:184.0px;top:57.0px" title="pos 14 · 透過"></div>
+<div class="key k-trans" style="left:230.0px;top:63.0px" title="pos 15 · 透過"></div>
+<div class="key k-trans" style="left:322.0px;top:63.0px" title="pos 16 · 透過"></div>
+<div class="key k-trans" style="left:368.0px;top:57.0px" title="pos 17 · 透過"></div>
+<div class="key k-trans" style="left:414.0px;top:51.5px" title="pos 18 · 透過"></div>
+<div class="key k-trans" style="left:460.0px;top:46.0px" title="pos 19 · 透過"></div>
+<div class="key k-trans" style="left:506.0px;top:51.5px" title="pos 20 · 透過"></div>
+<div class="key k-trans" style="left:552.0px;top:63.0px" title="pos 21 · 透過"></div>
+<div class="key k-trans" style="left:0.0px;top:109.0px" title="pos 22 · 透過"></div>
+<div class="key k-normal" style="left:46.0px;top:97.5px" title="pos 23 · Shift+1 = !"><span class="shift">!</span><span class="tap">1</span></div>
+<div class="key k-normal" style="left:92.0px;top:92.0px" title="pos 24 · Shift+2 = @"><span class="shift">@</span><span class="tap">2</span></div>
+<div class="key k-normal" style="left:138.0px;top:97.5px" title="pos 25 · Shift+3 = #"><span class="shift">#</span><span class="tap">3</span></div>
+<div class="key k-trans" style="left:184.0px;top:103.0px" title="pos 26 · 透過"></div>
+<div class="key k-trans" style="left:230.0px;top:109.0px" title="pos 27 · 透過"></div>
+<div class="key k-special" style="left:322.0px;top:109.0px" title="pos 28"><span class="tap">Boot</span></div>
+<div class="key k-trans" style="left:368.0px;top:103.0px" title="pos 29 · 透過"></div>
+<div class="key k-trans" style="left:414.0px;top:97.5px" title="pos 30 · 透過"></div>
+<div class="key k-trans" style="left:460.0px;top:92.0px" title="pos 31 · 透過"></div>
+<div class="key k-trans" style="left:506.0px;top:97.5px" title="pos 32 · 透過"></div>
+<div class="key k-special" style="left:552.0px;top:109.0px" title="pos 33"><span class="tap">BT Clr</span></div>
+<div class="key k-trans" style="left:0.0px;top:155.0px" title="pos 34 · 透過"></div>
+<div class="key k-trans" style="left:46.0px;top:143.5px" title="pos 35 · 透過"></div>
+<div class="key k-trans" style="left:92.0px;top:138.0px" title="pos 36 · 透過"></div>
+<div class="key k-trans" style="left:149.5px;top:155.0px" title="pos 37 · 透過"></div>
+<div class="key k-trans" style="left:201.0px;top:161.0px" title="pos 38 · 透過"></div>
+<div class="key k-trans" style="left:253.0px;top:178.0px" title="pos 39 · 透過"></div>
+<div class="key k-trans" style="left:299.0px;top:178.0px" title="pos 40 · 透過"></div>
+<div class="key k-trans" style="left:351.0px;top:161.0px" title="pos 41 · 透過"></div>
+<div class="key k-special" style="left:552.0px;top:155.0px" title="pos 42"><span class="tap">BT Clr All</span></div>
+  </div></div>
+  
+</section>
+<section class="layer">
+  <div class="layer-head">
+    <span class="layer-name">Extra</span>
+    <span class="layer-note">未使用・予約レイヤー</span>
+  </div>
+  <div class="board-wrap"><div class="board">
+<div class="key k-trans" style="left:0.0px;top:17.0px" title="pos 0 · 透過"></div>
+<div class="key k-trans" style="left:46.0px;top:5.5px" title="pos 1 · 透過"></div>
+<div class="key k-trans" style="left:92.0px;top:0.0px" title="pos 2 · 透過"></div>
+<div class="key k-trans" style="left:138.0px;top:5.5px" title="pos 3 · 透過"></div>
+<div class="key k-trans" style="left:184.0px;top:11.0px" title="pos 4 · 透過"></div>
+<div class="key k-trans" style="left:368.0px;top:11.0px" title="pos 5 · 透過"></div>
+<div class="key k-trans" style="left:414.0px;top:5.5px" title="pos 6 · 透過"></div>
+<div class="key k-trans" style="left:460.0px;top:0.0px" title="pos 7 · 透過"></div>
+<div class="key k-trans" style="left:506.0px;top:5.5px" title="pos 8 · 透過"></div>
+<div class="key k-trans" style="left:552.0px;top:17.0px" title="pos 9 · 透過"></div>
+<div class="key k-trans" style="left:0.0px;top:63.0px" title="pos 10 · 透過"></div>
+<div class="key k-trans" style="left:46.0px;top:51.5px" title="pos 11 · 透過"></div>
+<div class="key k-trans" style="left:92.0px;top:46.0px" title="pos 12 · 透過"></div>
+<div class="key k-trans" style="left:138.0px;top:51.5px" title="pos 13 · 透過"></div>
+<div class="key k-trans" style="left:184.0px;top:57.0px" title="pos 14 · 透過"></div>
+<div class="key k-trans" style="left:230.0px;top:63.0px" title="pos 15 · 透過"></div>
+<div class="key k-trans" style="left:322.0px;top:63.0px" title="pos 16 · 透過"></div>
+<div class="key k-trans" style="left:368.0px;top:57.0px" title="pos 17 · 透過"></div>
+<div class="key k-trans" style="left:414.0px;top:51.5px" title="pos 18 · 透過"></div>
+<div class="key k-trans" style="left:460.0px;top:46.0px" title="pos 19 · 透過"></div>
+<div class="key k-trans" style="left:506.0px;top:51.5px" title="pos 20 · 透過"></div>
+<div class="key k-trans" style="left:552.0px;top:63.0px" title="pos 21 · 透過"></div>
+<div class="key k-trans" style="left:0.0px;top:109.0px" title="pos 22 · 透過"></div>
+<div class="key k-trans" style="left:46.0px;top:97.5px" title="pos 23 · 透過"></div>
+<div class="key k-trans" style="left:92.0px;top:92.0px" title="pos 24 · 透過"></div>
+<div class="key k-trans" style="left:138.0px;top:97.5px" title="pos 25 · 透過"></div>
+<div class="key k-trans" style="left:184.0px;top:103.0px" title="pos 26 · 透過"></div>
+<div class="key k-trans" style="left:230.0px;top:109.0px" title="pos 27 · 透過"></div>
+<div class="key k-trans" style="left:322.0px;top:109.0px" title="pos 28 · 透過"></div>
+<div class="key k-trans" style="left:368.0px;top:103.0px" title="pos 29 · 透過"></div>
+<div class="key k-trans" style="left:414.0px;top:97.5px" title="pos 30 · 透過"></div>
+<div class="key k-trans" style="left:460.0px;top:92.0px" title="pos 31 · 透過"></div>
+<div class="key k-trans" style="left:506.0px;top:97.5px" title="pos 32 · 透過"></div>
+<div class="key k-trans" style="left:552.0px;top:109.0px" title="pos 33 · 透過"></div>
+<div class="key k-trans" style="left:0.0px;top:155.0px" title="pos 34 · 透過"></div>
+<div class="key k-trans" style="left:46.0px;top:143.5px" title="pos 35 · 透過"></div>
+<div class="key k-trans" style="left:92.0px;top:138.0px" title="pos 36 · 透過"></div>
+<div class="key k-trans" style="left:149.5px;top:155.0px" title="pos 37 · 透過"></div>
+<div class="key k-trans" style="left:201.0px;top:161.0px" title="pos 38 · 透過"></div>
+<div class="key k-trans" style="left:253.0px;top:178.0px" title="pos 39 · 透過"></div>
+<div class="key k-trans" style="left:299.0px;top:178.0px" title="pos 40 · 透過"></div>
+<div class="key k-trans" style="left:351.0px;top:161.0px" title="pos 41 · 透過"></div>
+<div class="key k-trans" style="left:552.0px;top:155.0px" title="pos 42 · 透過"></div>
+  </div></div>
+  
+</section>
+<section class="layer">
+  <div class="layer-head">
+    <span class="layer-name">キー位置番号マップ</span>
+    <span class="layer-note">コンボの key-positions・キーキャップのツールチップと対応</span>
+  </div>
+  <div class="board-wrap"><div class="board">
+<div class="key k-posmap" style="left:0.0px;top:17.0px"><span class="tap">0</span></div>
+<div class="key k-posmap" style="left:46.0px;top:5.5px"><span class="tap">1</span></div>
+<div class="key k-posmap" style="left:92.0px;top:0.0px"><span class="tap">2</span></div>
+<div class="key k-posmap" style="left:138.0px;top:5.5px"><span class="tap">3</span></div>
+<div class="key k-posmap" style="left:184.0px;top:11.0px"><span class="tap">4</span></div>
+<div class="key k-posmap" style="left:368.0px;top:11.0px"><span class="tap">5</span></div>
+<div class="key k-posmap" style="left:414.0px;top:5.5px"><span class="tap">6</span></div>
+<div class="key k-posmap" style="left:460.0px;top:0.0px"><span class="tap">7</span></div>
+<div class="key k-posmap" style="left:506.0px;top:5.5px"><span class="tap">8</span></div>
+<div class="key k-posmap" style="left:552.0px;top:17.0px"><span class="tap">9</span></div>
+<div class="key k-posmap" style="left:0.0px;top:63.0px"><span class="tap">10</span></div>
+<div class="key k-posmap" style="left:46.0px;top:51.5px"><span class="tap">11</span></div>
+<div class="key k-posmap" style="left:92.0px;top:46.0px"><span class="tap">12</span></div>
+<div class="key k-posmap" style="left:138.0px;top:51.5px"><span class="tap">13</span></div>
+<div class="key k-posmap" style="left:184.0px;top:57.0px"><span class="tap">14</span></div>
+<div class="key k-posmap" style="left:230.0px;top:63.0px"><span class="tap">15</span></div>
+<div class="key k-posmap" style="left:322.0px;top:63.0px"><span class="tap">16</span></div>
+<div class="key k-posmap" style="left:368.0px;top:57.0px"><span class="tap">17</span></div>
+<div class="key k-posmap" style="left:414.0px;top:51.5px"><span class="tap">18</span></div>
+<div class="key k-posmap" style="left:460.0px;top:46.0px"><span class="tap">19</span></div>
+<div class="key k-posmap" style="left:506.0px;top:51.5px"><span class="tap">20</span></div>
+<div class="key k-posmap" style="left:552.0px;top:63.0px"><span class="tap">21</span></div>
+<div class="key k-posmap" style="left:0.0px;top:109.0px"><span class="tap">22</span></div>
+<div class="key k-posmap" style="left:46.0px;top:97.5px"><span class="tap">23</span></div>
+<div class="key k-posmap" style="left:92.0px;top:92.0px"><span class="tap">24</span></div>
+<div class="key k-posmap" style="left:138.0px;top:97.5px"><span class="tap">25</span></div>
+<div class="key k-posmap" style="left:184.0px;top:103.0px"><span class="tap">26</span></div>
+<div class="key k-posmap" style="left:230.0px;top:109.0px"><span class="tap">27</span></div>
+<div class="key k-posmap" style="left:322.0px;top:109.0px"><span class="tap">28</span></div>
+<div class="key k-posmap" style="left:368.0px;top:103.0px"><span class="tap">29</span></div>
+<div class="key k-posmap" style="left:414.0px;top:97.5px"><span class="tap">30</span></div>
+<div class="key k-posmap" style="left:460.0px;top:92.0px"><span class="tap">31</span></div>
+<div class="key k-posmap" style="left:506.0px;top:97.5px"><span class="tap">32</span></div>
+<div class="key k-posmap" style="left:552.0px;top:109.0px"><span class="tap">33</span></div>
+<div class="key k-posmap" style="left:0.0px;top:155.0px"><span class="tap">34</span></div>
+<div class="key k-posmap" style="left:46.0px;top:143.5px"><span class="tap">35</span></div>
+<div class="key k-posmap" style="left:92.0px;top:138.0px"><span class="tap">36</span></div>
+<div class="key k-posmap" style="left:149.5px;top:155.0px"><span class="tap">37</span></div>
+<div class="key k-posmap" style="left:201.0px;top:161.0px"><span class="tap">38</span></div>
+<div class="key k-posmap" style="left:253.0px;top:178.0px"><span class="tap">39</span></div>
+<div class="key k-posmap" style="left:299.0px;top:178.0px"><span class="tap">40</span></div>
+<div class="key k-posmap" style="left:351.0px;top:161.0px"><span class="tap">41</span></div>
+<div class="key k-posmap" style="left:552.0px;top:155.0px"><span class="tap">42</span></div>
+  </div></div>
+</section>
+<section class="layer">
+  <div class="layer-head"><span class="layer-name">コンボ</span><span class="layer-note">同時押しで発火・timeout 100ms(BT系)</span></div>
+  <table class="combos">
+    <thead><tr><th>位置</th><th>物理キー</th><th>結果</th><th>有効レイヤー</th></tr></thead>
+    <tbody><tr><td class="pos">11 + 12</td><td>S・D(左手中段)</td><td class="result">Tab</td><td>全レイヤー</td></tr>
+<tr><td class="pos">12 + 13</td><td>D・F(左手中段)</td><td class="result">Shift+Tab</td><td>全レイヤー</td></tr>
+<tr><td class="pos">40 + 41 + 0</td><td>Enter・F13・Q</td><td class="result">BT_SEL 0</td><td>Baseのみ</td></tr>
+<tr><td class="pos">40 + 41 + 1</td><td>Enter・F13・W</td><td class="result">BT_SEL 1</td><td>Baseのみ</td></tr>
+<tr><td class="pos">40 + 41 + 2</td><td>Enter・F13・E</td><td class="result">BT_SEL 2</td><td>Baseのみ</td></tr>
+<tr><td class="pos">40 + 41 + 3</td><td>Enter・F13・R</td><td class="result">BT_SEL 3</td><td>Baseのみ</td></tr>
+<tr><td class="pos">40 + 41 + 4</td><td>Enter・F13・T</td><td class="result">BT_SEL 4</td><td>Baseのみ</td></tr></tbody>
+  </table>
+</section>
+
+  <div class="notes">
+    <h2>補足</h2>
+    <ul>
+      <li>Num・Arrow・System・Extra の各レイヤーには現状キーマップ上の切替バインディングが見当たりません(ZMK Studio 等での直接切替が前提と思われます)。</li>
+      <li>Mouse レイヤーはトラックボール操作で自動起動(automouse-layer = 4)。Scroll レイヤーは右手 I キー長押し(lt 5)でトラックボール入力がスクロールに切り替わります。</li>
+      <li>NUM レイヤーの KP0 キーは Shift 同時押しで Mod-Tap、位置15 の KP0 は Ctrl+Alt+KP0 固定バインディング(タスクバー等のショートカット用途と推測)。</li>
+      <li>キー上のツールチップ(ホバー)に position 番号を表示— コンボの key-positions と対応しています。</li>
+    </ul>
+  </div>
+
+  <footer>Generated from config/roBa.keymap · boards/shields/roBa/roBa.dtsi (commit ae5903d 時点)</footer>
+</div>
+
+</body>
+</html>
