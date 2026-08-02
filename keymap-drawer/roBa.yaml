@@ -17,33 +17,33 @@ layers:
   - F
   - G
   - ESC
-  - '-'
+  - BACKSPACE
   - H
   - J
   - K
   - L
-  - ''''
+  - ;
   - {t: Z, h: LEFT SHIFT}
   - X
   - C
   - V
   - B
   - Function
-  - ;
+  - '`'
   - N
   - M
   - ','
   - .
-  - /
+  - ''''
   - LCTRL
   - LEFT WIN
   - LEFT ALT
   - F14
-  - BACKSPACE
+  - {t: ▽, type: trans}
   - SPACE
   - ENTER
   - F13
-  - DEL
+  - /
   Function:
   - F1
   - F2
