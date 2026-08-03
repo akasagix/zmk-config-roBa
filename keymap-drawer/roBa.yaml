@@ -34,7 +34,7 @@ layers:
   - M
   - ','
   - .
-  - ''''
+  - {t: '''', h: RIGHT SHIFT}
   - LCTRL
   - LEFT WIN
   - LEFT ALT
@@ -89,21 +89,21 @@ layers:
   - {t: ▽, type: trans}
   - END
   Arrow:
-  - ESCAPE
-  - Ctl+Sft+TAB
+  - Gui+LEFT ARROW
+  - Gui+Alt+LEFT ARROW
   - UP ARROW
-  - Ctl+TAB
+  - Gui+Alt+RIGHT ARROW
+  - Gui+RIGHT ARROW
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - HOME
   - LEFT ARROW
   - DOWN ARROW
   - RIGHT ARROW
-  - END
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -130,7 +130,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - LEFT WIN
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   Mouse:
   - {t: ▽, type: trans}
